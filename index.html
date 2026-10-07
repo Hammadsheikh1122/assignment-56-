@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment 56 & 57</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        /* Question 1 */
+        .box {
+            display: none;
+            background: lightblue;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .showBox {
+            display: block;
+        }
+
+        /* Question 2 */
+        .myImage {
+            width: 250px;
+            border: 3px solid black;
+            transition: 0.3s;
+        }
+
+        .imageEffect {
+            width: 320px;
+            border: 5px solid blue;
+            border-radius: 20px;
+        }
+
+        /* Highlight Class */
+        .highlight {
+            background: yellow;
+            padding: 10px;
+            border-left: 5px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Assignment 56 & 57</h1>
+
+    <!-- Question 1 -->
+    <section>
+        <h2>Question 1: Show the Box</h2>
+
+        <button id="showButton">Show Box</button>
+
+        <div id="box" class="box">
+            <h3>Hello!</h3>
+            <p>This is the hidden box.</p>
+        </div>
+    </section>
+
+
+    <!-- Question 2 -->
+    <section>
+        <h2>Question 2: Interactive Image</h2>
+
+        <img
+            id="image"
+            class="myImage"
+            src="https://picsum.photos/250/180"
+            alt="Interactive Image"
+        >
+    </section>
+
+
+    <!-- Question 3 -->
+    <section>
+        <h2>Question 3: Notice Board</h2>
+
+        <p>Notice 1: Assignment deadline is October 9.</p>
+        <p>Notice 2: Attend your classes regularly.</p>
+        <p>Notice 3: Complete your JavaScript work.</p>
+        <p>Notice 4: Keep your projects updated.</p>
+        <p>Notice 5: Prepare for your upcoming quiz.</p>
+
+        <button id="noticeButton">Highlight Notices</button>
+    </section>
+
+
+    <!-- Question 4 -->
+    <section id="studentRules">
+        <h2>Student Rules</h2>
+
+        <p>Rule 1: Attend classes regularly.</p>
+        <p>Rule 2: Submit assignments on time.</p>
+        <p>Rule 3: Respect your teachers.</p>
+
+        <button id="rulesButton">Highlight Rules</button>
+    </section>
+
+
+    <section id="courseInformation">
+        <h2>Course Information</h2>
+
+        <p>HTML is used to create webpage structure.</p>
+        <p>CSS is used to style webpages.</p>
+        <p>JavaScript is used to make webpages interactive.</p>
+
+        <button id="courseButton">Highlight Course</button>
+    </section>
+
+
+    <script>
+
+        // Question 1
+
+        var showButton = document.getElementById("showButton");
+        var box = document.getElementById("box");
+
+        showButton.onclick = function () {
+            box.classList.add("showBox");
+        };
+
+
+        // Question 2
+
+        var image = document.getElementById("image");
+
+        image.onmouseover = function () {
+            image.classList.add("imageEffect");
+        };
+
+        image.onmouseout = function () {
+            image.classList.remove("imageEffect");
+        };
+
+
+        // Question 3
+
+        var noticeButton = document.getElementById("noticeButton");
+
+        noticeButton.onclick = function () {
+
+            var paragraphs = document.getElementsByTagName("p");
+
+            for (var i = 0; i < paragraphs.length; i++) {
+
+                paragraphs[i].innerHTML =
+                    "Highlighted: " + paragraphs[i].innerHTML;
+
+                paragraphs[i].classList.add("highlight");
+            }
+        };
+
+
+        // Question 4 - Student Rules
+
+        var rulesButton = document.getElementById("rulesButton");
+
+        rulesButton.onclick = function () {
+
+            var studentRules =
+                document.getElementById("studentRules");
+
+            var rules =
+                studentRules.getElementsByTagName("p");
+
+            for (var i = 0; i < rules.length; i++) {
+
+                rules[i].innerHTML =
+                    "Highlighted Rule: " + rules[i].innerHTML;
+
+                rules[i].classList.add("highlight");
+            }
+        };
+
+
+        // Question 4 - Course Information
+
+        var courseButton = document.getElementById("courseButton");
+
+        courseButton.onclick = function () {
+
+            var courseInformation =
+                document.getElementById("courseInformation");
+
+            var courses =
+                courseInformation.getElementsByTagName("p");
+
+            for (var i = 0; i < courses.length; i++) {
+
+                courses[i].innerHTML =
+                    "Highlighted Course: " + courses[i].innerHTML;
+
+                courses[i].classList.add("highlight");
+            }
+        };
+
+    </script>
+
+</body>
+</html>
